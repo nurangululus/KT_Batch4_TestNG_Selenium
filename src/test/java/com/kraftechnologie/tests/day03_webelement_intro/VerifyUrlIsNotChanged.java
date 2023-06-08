@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class VerifyUrlIsNotChanged {
     public static void main(String[] args) throws InterruptedException {
 
-        /** Class Task
+        /** Class Task 1
          * open the chrome browser
          * go to  https://www.krafttechexlab.com/login  page
          * click on login button
@@ -30,9 +30,9 @@ public class VerifyUrlIsNotChanged {
         System.out.println("actualURL = " + actualURL);
 
         if(expectedURL.equals(actualURL)){
-            System.out.printf("Pass");
+            System.out.println("Pass");
         }else {
-            System.out.printf("Fail");
+            System.out.println("Fail");
         }
 
         Thread.sleep(5000);
