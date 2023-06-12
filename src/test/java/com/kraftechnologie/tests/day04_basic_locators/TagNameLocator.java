@@ -16,7 +16,7 @@ public class TagNameLocator {
         driver.findElement(By.cssSelector("[type='submit']")).click();
         //mike
         System.out.println("driver.findElement(By.tagName(\"h2\")).getText() = " + driver.findElement(By.tagName("h2")).getText());
-        //mike
+        //SDET
         System.out.println("driver.findElement(By.tagName(\"h3\")).getText() = " + driver.findElement(By.tagName("h3")).getText());
 
 
