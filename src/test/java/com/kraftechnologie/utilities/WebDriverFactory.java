@@ -20,10 +20,12 @@ public class WebDriverFactory {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
+                driver.manage().window().maximize();
                 break;
             case "safari":
                 WebDriverManager.safaridriver().setup();
                 driver = new SafariDriver();
+                driver.manage().window().maximize();
                 break;
         }
         return driver;
