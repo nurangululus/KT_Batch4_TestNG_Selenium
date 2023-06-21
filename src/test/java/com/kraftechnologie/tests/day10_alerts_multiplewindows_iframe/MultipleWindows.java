@@ -65,8 +65,8 @@ public class MultipleWindows {
 
         String expectedUrl = "https://the-internet.herokuapp.com/windows/new";
 
+        //switched between multiple windows by using known url
         Set<String> windowHandles = driver.getWindowHandles();
-
         for (String windowHandle : windowHandles) {
             driver.switchTo().window(windowHandle);
             if(driver.getCurrentUrl().equals(expectedUrl)){
