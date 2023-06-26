@@ -15,11 +15,13 @@ import java.util.concurrent.TimeUnit;
 
 public class ActionTest {
     WebDriver driver;
+    Actions actions;
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        actions=new Actions(driver);
     }
 
     @AfterMethod
@@ -35,7 +37,7 @@ public class ActionTest {
         WebElement img2 = driver.findElement(By.xpath("(//img)[3]"));
         //img2.click();
         //Actions --> class that contains all the user interactions
-        Actions actions=new Actions(driver);
+        //Actions actions=new Actions(driver);
         Thread.sleep(2000);
 
         //moveToElement()--> move your mouse to the web element ( hover over)
@@ -57,7 +59,7 @@ public class ActionTest {
 
         WebElement target= driver.findElement(By.xpath("(//div[@id='droppable'])[1]"));
 
-        Actions actions=new Actions(driver);
+       //Actions actions=new Actions(driver);
 
         actions.dragAndDrop(source,target).perform();
 
@@ -67,5 +69,21 @@ public class ActionTest {
         Assert.assertTrue(verifyMessage.isDisplayed());
 
         Assert.assertEquals(verifyMessage.getText(),"Dropped!","Verify that element has dropped");
+    }
+
+    @Test
+    public void dragAndDrop2() {
+        driver.get("https://demoqa.com/droppable");
+        WebElement source = driver.findElement(By.id("draggable"));
+        WebElement target= driver.findElement(By.xpath("(//div[@id='droppable'])[1]"));
+       // Actions actions=new Actions(driver);
+        actions.moveToElement(source).clickAndHold().moveToElement(target).pause(3000).release().perform();
+        WebElement verifyMessage=driver.findElement(By.xpath("//p[text()='Dropped!']"));
+        System.out.println("verifyMessage.getText() = " + verifyMessage.getText());
+
+        Assert.assertTrue(verifyMessage.isDisplayed());
+
+        Assert.assertEquals(verifyMessage.getText(),"Dropped!","Verify that element has dropped");
+
     }
 }
