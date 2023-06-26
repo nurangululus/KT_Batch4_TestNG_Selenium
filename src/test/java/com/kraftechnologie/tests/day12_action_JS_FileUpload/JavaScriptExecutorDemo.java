@@ -19,7 +19,7 @@ public class JavaScriptExecutorDemo {
     public void setUp() throws InterruptedException {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
     }
 
@@ -76,5 +76,18 @@ public class JavaScriptExecutorDemo {
             Thread.sleep(1000);
             jse.executeScript("window.scrollBy(0,-500)");
         }
+    }
+
+    @Test
+    public void scrollToElement() throws InterruptedException {
+        driver.get("https://www.amazon.com.tr/");
+        driver.findElement(By.id("sp-cc-accept")).click();
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        WebElement germany = driver.findElement(By.linkText("Almanya"));
+        Thread.sleep(2000);
+        //ask google to--> how to scroll into view with js executor
+        jse.executeScript("arguments[0].scrollIntoView(true);", germany);
+        jse.executeScript("arguments[0].click();", germany);
+
     }
 }

@@ -49,6 +49,14 @@ public class ActionTest {
         System.out.println("view_profile1.getText() = " + view_profile1.getText());
 
         Assert.assertTrue(view_profile1.isDisplayed(),"Verify that element is displayed");
+
+        /**  Hover class Task
+         *      go to https://the-internet.herokuapp.com/hovers url
+         *      and get "view profile" elements' text (all of them)
+         *      and verify element is displayed (one by one)
+         *
+         *      hind: Use list and for loop
+         */
     }
 
     @Test
