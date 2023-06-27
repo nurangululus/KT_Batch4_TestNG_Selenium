@@ -28,11 +28,9 @@ public class ImplicitWaitExample {
 
     @Test
     public void implicitWaitTest(){
-
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
         driver.findElement(By.cssSelector("#checkbox-example>button")).click();
         WebElement message = driver.findElement(By.id("message"));
         Assert.assertEquals(message.getText(),"It's gone!");
     }
-
 }
