@@ -1,5 +1,6 @@
 package com.kraftechnologie.tests.day12_action_JS_FileUpload;
 
+import com.kraftechnologie.utilities.ConfigurationReader;
 import com.kraftechnologie.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,8 @@ public class ActionTest {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        driver = WebDriverFactory.getDriver("chrome");
+        //driver = WebDriverFactory.getDriver("chrome");
+        driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser")); // added after day14
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         actions=new Actions(driver);
     }
